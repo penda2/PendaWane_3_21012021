@@ -2,12 +2,20 @@ body {
 	font-family: 'Roboto', sans-serif;
 	margin: 0 auto;
 }
-.cursive {
+.menu_title {
 	font-family: 'Shrikhand', cursive;
 	margin-left: 25px;
 }
-
-
+.top {
+	position: relative;
+}
+.top i {
+	position: absolute;
+	right: 50px;
+	top: 5px;
+	font-size: 25px;
+	color: grey;
+}
 .fond_gris {
 	background-color: #F5F5F5;
 	border-radius: 50px 50px 0 0;
@@ -52,23 +60,22 @@ body {
 	justify-content: space-between;
 	align-items: center;
 }
-.cmd {
+.container {
 	display: flex;
 	justify-content: center;
 }
 .btn {
+	margin-top: 20px;
 	padding: 12px 30px;
 	border-radius: 25px;
-	border: none;
 	color: white;
-	margin: 20px;
 	font-size: 15px;
-	background-color: #9356DC;
+	background-image: linear-gradient(#FF79DA, #9356DC);
 	cursor: pointer;
 }
 .btn:hover {
-	background-image: linear-gradient(#FF79DA, #9356DC);
-	box-shadow: 1px 6px 10px lightgrey;
+	background-image: linear-gradient(to bottom,#FFB3EB, #FF79DA, #9356DC);
+	box-shadow: 0px 10px 10px lightgrey;
 }
 
 .header {
@@ -89,7 +96,7 @@ body {
 	font-family: 'Shrikhand', cursive;
 	font-size: 35px;
 }
-.introduction {
+.sect_1 {
 	width: 100%;
 	background-color: #F5F5F5;
 	padding-bottom: 50px;
@@ -137,7 +144,7 @@ p {
 	left: -10px;
 }
 
-.introduction i, .fonctionnement i {
+.sect_1 i, .fonctionnement i {
 	margin-right: 15px;
 	color: grey;
 }
@@ -149,17 +156,23 @@ p {
 	justify-content: center;
 	align-items: center;
 }
-.plats {  /* restaurants */
+.sect_3 {  /* restaurants */
 	background-color: #F5F5F5; 
 	padding-bottom: 50px;
+	padding-top: 5px;
 }
+.images {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
 figure {
 	width: 320px;
 	height: 200px;
 	position: relative;
-	box-shadow: 2px 6px 10px lightgrey;
-	margin-bottom: 40px;
-;
+	margin-bottom: 25px;
 }
 .images img {
 	object-fit: cover;
@@ -174,8 +187,9 @@ figcaption {
 	position: absolute;
 	bottom: -20px;
 	border-radius: 0px 0px 15px 15px;
+	box-shadow: 0px 5px 10px lightgrey;
 }
-.plats a {
+.sect_3 a {
 	text-decoration: none;
 	color: black;
 }
@@ -220,9 +234,10 @@ figcaption {
 .footer i {
 	margin-right: 10px;
 }
-.liens p {
+.liens h2 {
 	color: white;
 	font-family: 'Shrikhand', cursive;
+	margin: 0;
 }
 .liens nav ul {
 	list-style-type: none;
@@ -235,4 +250,68 @@ figcaption {
 .liens a {
 	text-decoration: none;
 	color: white;
+}
+@media all and (min-width: 740px) and (max-width: 900px)/* tablette */
+{
+	.images {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	figure {
+		padding: 0;
+		margin: 30px 20px;
+	}
+	.fig_carte {
+		height: 350px;
+	}
+	.sect_2 h2, .sect_3 h2 {
+		text-align: center;
+	}
+	.sect_3 {
+		margin-top: 25px;
+	}
+	.footer {
+    height: 120px;
+}
+	.liens ul {
+		display: flex;
+		justify-content: space-between;
+		margin-right: 15px;
+	}
+		
+}
+@media all and (min-width: 901px) and (max-width: 1100px)/* PC */
+{
+	.images {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	figure {
+		margin: 30px 25px;
+		width: 400px;
+		height: 265px;
+		position: relative;
+		margin-bottom: 25px;
+		}
+		.footer {
+			height: 120px;
+		}
+		.liens ul {
+		display: flex;
+		justify-content: space-between;
+		margin-right: 15px;
+		}
+		.liens nav li {
+			margin: 20px;
+		}
+		
+		.liens {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-around;
+			width: 90%;
+		}		
 }
