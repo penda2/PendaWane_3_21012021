@@ -1,5 +1,6 @@
 body {
 	font-family: 'Roboto', sans-serif;
+	padding: 0;
 	margin: 0 auto;
 }
 p {
@@ -46,6 +47,9 @@ p {
 	height: 3px;
 	bottom: -5px;
 }
+.sect_2 h2, .sect_3 h2 {
+		margin-left: 25px;
+	}
 .bloc_menus p {
 	margin: 10px;
 	text-overflow: ellipsis;
@@ -64,24 +68,47 @@ p {
 	margin-bottom: 20px;
 	box-shadow: 1px 6px 10px lightgrey;
 	opacity: 0;
-	animation: apparition 1.5s forwards; 
+	overflow: hidden;
 }
-.bloc_plats:nth-child(1) {
-	animation-delay: 0.3s;
+.entrees, .plats, .desserts {
+	animation: apparition 1s forwards; 
 }
-.bloc_plats:nth-child(2) {
+
+.entrees:nth-child(1) {
+	animation-delay: 0.2s;
+}
+.entrees:nth-child(2) {
+	animation-delay: 0.4s;
+}
+.entrees:nth-child(3) {
+	animation-delay: 0.6s;
+}
+.entrees:nth-child(4) {
 	animation-delay: 0.8s;
 }
-.bloc_plats:nth-child(3) {
-	animation-delay: 1.3s;
+.plats:nth-child(1) {
+	animation-delay: 1s;
 }
-.bloc_plats:nth-child(4) {
+.plats:nth-child(2) {
+	animation-delay: 1.2s;
+}
+.plats:nth-child(3) {
+	animation-delay: 1.4s;
+}
+.desserts:nth-child(1) {
+	animation-delay: 1.6s;
+}
+.desserts:nth-child(2) {
 	animation-delay: 1.8s;
 }
+.desserts:nth-child(3) {
+	animation-delay: 2s;
+}
+
 @keyframes apparition{
 	0% {
 		opacity: 0;
-		transform: translateY(5px);
+		transform: translateY(20px);
 	}
 	
 	100% {
@@ -92,12 +119,15 @@ p {
 
 .check {
 	position: absolute;
-	right: 0;
+	right: -70px;
 	top: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	transition: transform 2s forwards;
+}
+
+.bloc_plats .check:hover {
+	animation: slide-left .5s forwards;
 }
 .price {
 	width: 70px;
@@ -117,6 +147,10 @@ p {
     width: 18px;
     padding: 7px;
     border-radius: 50%;
+    transition: transform 2s forwards;
+}
+.price_icon:hover { /*animation*/
+	transform: rotate(360deg);
 }
 .price_icon {
 	background-color: #99E2D0;
@@ -126,12 +160,18 @@ p {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	display: none;
 }
-.bloc_plats:hover .price_icon {
-	display: inline-flex;
+
+@keyframes slide-left {
+	0% {
+		right: -70px;
+	}
+	100% {
+		right: 0;
+	}
 }
-.container {
+
+.container {/*bouton*/
 	display: flex;
 	justify-content: center;
 }
@@ -203,6 +243,10 @@ p {
 	border-radius: 15px;
 	position: relative;
 }
+.fonctionnement div:hover {
+	background-color: #9356DC;
+	opacity: 0.2;
+}
 .numero {
 	width: 18px;
 	padding: 7px ;
@@ -268,7 +312,27 @@ figcaption {
 	font-size: 25px;
 	color: grey;
 	cursor: pointer;
+	transition: opacity 0.2s forwards;
  }
+figcaption .far:hover {
+	opacity: 0;
+}
+figcaption .fas {
+	position: absolute;
+	right: 30px;
+	top: 20px;
+	font-size: 25px;
+	background: linear-gradient(#FF79DA, #9356DC);
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	cursor: pointer;
+	color: transparent;
+	opacity: 0;
+	transition: opacity 0.5s ease-in-out;
+}
+figcaption .fas:hover {
+	opacity: 1;
+}
 .sect_3 a {
 	text-decoration: none;
 	color: black;
@@ -280,7 +344,7 @@ figcaption {
    font-size: 25px;
    color: grey;
    cursor: pointer;
-   transition: opacity .3s ease-in-out;
+   transition: opacity 0.2s forwards;
 }
 .top .far:hover {
 	opacity: 0;
@@ -291,10 +355,13 @@ figcaption {
 	right: 30px;
 	top: 5px;
 	font-size: 25px;
-	color: #9356DC;
+	background: linear-gradient(#FF79DA, #9356DC);
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
 	cursor: pointer;
+	color: transparent;
 	opacity: 0;
-	transition: opacity 1s ease-in-out;
+	transition: opacity 0.5s ease-in-out;
 }
 .top .fas:hover {
 	opacity: 1;
