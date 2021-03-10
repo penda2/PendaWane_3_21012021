@@ -1,25 +1,52 @@
 body {
 	font-family: 'Roboto', sans-serif;
 	padding: 0;
-	margin: 0 auto;
+	margin: 0;
 }
+.loading { /* loding spinner */
+	width: 100%;
+	height: 300px;
+	background-color: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.cercle {
+	width: 50px;
+	height: 50px;
+	border: 5px solid transparent;
+	border-radius: 50%;
+	animation: spin 1.5s linear infinite;
+	border-spacing: 5px;
+}
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+		border-left-color: lightgrey;
+		border-bottom-color: #99E2D0;
+		border-right-color: #9356DC;
+		border-top-color: #FF79DA;
+		box-shadow: 0 0 30px #99E2D0;
+	}
+}
+
 p {
 	margin: 10px;
 }
-.menu_title {
+.titre_menu {
 	font-family: 'Shrikhand', cursive;
 	margin-left: 25px;
 }
 .top {
 	position: relative;
+	background-color: #F5F5F5;
+	border-radius: 50px 50px 0 0;
+	padding-top: 5px;
 }
-.top i {
-	position: absolute;
-	right: 50px;
-	top: 5px;
-	font-size: 25px;
-	color: grey;
-}
+
 .img_top {
 	z-index: 1;
 }
@@ -27,9 +54,9 @@ p {
 	z-index: 2;
 	background-color: #F5F5F5;
 	border-radius: 50px 50px 0 0;
-	padding-top: 15px;
+	padding-top: 5px;
 	padding-bottom: 40px;
-	margin-top: -30px;
+	margin-top: -60px;
 	
 }
 .fond_gris h3 {
@@ -47,16 +74,17 @@ p {
 	height: 3px;
 	bottom: -5px;
 }
+.titre_menu h2 {
+    margin: 0;
+}
 .sect_2 h2, .sect_3 h2 {
-		margin-left: 25px;
+	margin: 15px 25px;
 	}
-.bloc_menus p {
-	margin: 10px;
+.bloc_plats p {
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
 }
-
 .bloc_plats {
 	position: relative;
 	width: 90%;
@@ -73,7 +101,6 @@ p {
 .entrees, .plats, .desserts {
 	animation: apparition 1s forwards; 
 }
-
 .entrees:nth-child(1) {
 	animation-delay: 0.2s;
 }
@@ -116,7 +143,6 @@ p {
 		transform: translateY(0);
 	}
 }
-
 .check {
 	position: absolute;
 	right: -70px;
@@ -125,11 +151,10 @@ p {
 	justify-content: center;
 	align-items: center;
 }
-
-.bloc_plats .check:hover {
+.bloc_plats:hover .check {
 	animation: slide-left .5s forwards;
 }
-.price {
+.prix {
 	width: 70px;
 	height: 65px;
 	background-color: white;
@@ -141,18 +166,18 @@ p {
 	border-radius: 0 20px 20px 0;
 }
 .fa-check {
-    color: #99E2D0;
-    background-color: white;
-    font-size: 20px;
-    width: 18px;
-    padding: 7px;
-    border-radius: 50%;
-    transition: transform 2s forwards;
+	color: #99E2D0;
+	background-color: white;
+	font-size: 20px;
+	width: 18px;
+	padding: 7px;
+	border-radius: 50%;
 }
-.price_icon:hover { /*animation*/
+.bloc_plats:hover .fa-check { /*animation*/
 	transform: rotate(360deg);
+	transition: transform 0.5s;
 }
-.price_icon {
+.icone_check {
 	background-color: #99E2D0;
 	border-radius: 0 15px 15px 0;
 	width: 70px;
@@ -170,7 +195,6 @@ p {
 		right: 0;
 	}
 }
-
 .container {/*bouton*/
 	display: flex;
 	justify-content: center;
@@ -188,7 +212,6 @@ p {
 	background-image: linear-gradient(to bottom,#FFB3EB, #FF79DA, #9356DC);
 	box-shadow: 0px 10px 10px lightgrey;
 }
-
 .header {
 	display: flex;
 	justify-content: center;
@@ -218,14 +241,11 @@ p {
 	align-items: center;
 	height: 60px;
 	background-color: #EFEFEF;
-
 }
-
 .decouverte h2, .decouverte p {
 	width: 80%;
 	text-align: center;
 }
-
 .fonctionnement, .decouverte {
 	display: flex;
 	flex-direction: column;
@@ -239,13 +259,13 @@ p {
 	width: 80%;
 	height: 60px;
 	background-color: #F5F5F5;
+	cursor: pointer;
 	margin-bottom: 20px;
 	border-radius: 15px;
 	position: relative;
 }
 .fonctionnement div:hover {
-	background-color: #9356DC;
-	opacity: 0.2;
+	background-color: #F8EEFE;
 }
 .numero {
 	width: 18px;
@@ -273,7 +293,7 @@ p {
 .sect_3 {  /* restaurants */
 	background-color: #F5F5F5; 
 	padding-bottom: 50px;
-	padding-top: 5px;
+	padding-top: 25px;
 }
 .images {
 	display: flex;
@@ -281,8 +301,7 @@ p {
 	justify-content: space-between;
 	align-items: center;
 }
-
-figure {
+figure { /*page d'accueil*/
 	margin-left: 0;
 	margin-right: 0;
 	width: 320px;
@@ -328,7 +347,7 @@ figcaption .fas {
 	cursor: pointer;
 	color: transparent;
 	opacity: 0;
-	transition: opacity 0.5s ease-in-out;
+	transition: opacity 0.5s;
 }
 figcaption .fas:hover {
 	opacity: 1;
@@ -339,12 +358,12 @@ figcaption .fas:hover {
 }
 .top .far {
    position: absolute;
-   right: 30px;
-   top: 5px;
+   right: 40px;
+   top: 30px;
    font-size: 25px;
    color: grey;
    cursor: pointer;
-   transition: opacity 0.2s forwards;
+   transition: opacity 0.2s;
 }
 .top .far:hover {
 	opacity: 0;
@@ -352,8 +371,8 @@ figcaption .fas:hover {
 
 .top .fas {
 	position: absolute;
-	right: 30px;
-	top: 5px;
+	right: 40px;
+	top: 30px;
 	font-size: 25px;
 	background: linear-gradient(#FF79DA, #9356DC);
 	-webkit-background-clip: text;
@@ -361,7 +380,7 @@ figcaption .fas:hover {
 	cursor: pointer;
 	color: transparent;
 	opacity: 0;
-	transition: opacity 0.5s ease-in-out;
+	transition: opacity 0.5s;
 }
 .top .fas:hover {
 	opacity: 1;
@@ -376,16 +395,13 @@ figcaption .fas:hover {
 	right: 15px;
 	top: 15px;
 	font-weight: bold;
-	cursor: pointer;
 }
-
-.fig_carte {
+.fig_carte {/* bloc-image pages menu */
 	margin: 0;
 	padding: 0;
 	width: 100%;
 	height: 300px;
 }
-
 .fig_carte img {
 	object-fit: cover;
 	width: 100%;
@@ -408,7 +424,6 @@ figcaption .fas:hover {
 .liens nav ul {
 	list-style-type: none;
 	padding: 0;
-
 }
 .liens nav li {
 	margin-bottom: 10px;
@@ -417,6 +432,7 @@ figcaption .fas:hover {
 	text-decoration: none;
 	color: white;
 }
+
 @media all and (min-width: 740px) and (max-width: 900px)/* tablette */
 {
 	.images {
@@ -438,16 +454,16 @@ figcaption .fas:hover {
 		margin-top: 25px;
 	}
 	.footer {
-    height: 120px;
-}
+		height: 120px;
+	}
 	.liens ul {
 		display: flex;
 		justify-content: space-between;
 		margin-right: 15px;
 	}
-		
 }
-@media all and (min-width: 901px) and (max-width: 1100px)/* PC */
+
+@media all and (min-width: 901px) and (max-width: 1200px)/* PC */
 {
 	.images {
 		flex-direction: row;
@@ -460,24 +476,93 @@ figcaption .fas:hover {
 		height: 265px;
 		position: relative;
 		margin-bottom: 25px;
-		}
-		.footer {
-			height: 120px;
-		}
-		.liens ul {
+	}
+	.top .far, .top .fas {
+		right: 60px;
+	}
+	.titre_menu {
+		margin-left: 60px;
+	}
+	.footer {
+		height: 120px;
+	}
+	.liens ul {
 		display: flex;
 		justify-content: space-between;
-		margin-right: 15px;
-		}
-		.liens nav li {
-			margin: 20px;
-		}
+	}
+	.liens nav li {
+		margin: 15px 25px;
+	}
 		
-		.liens {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: space-around;
-			width: 90%;
-		}		
+	.liens {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+		width: auto;
+	}
+	.fig_carte {
+		height: 400px;
+	}
+
 }
+@media all and (min-width: 1201px)/* grand écran */
+{
+	.header {
+		height: 80px;
+	}
+	.fa-arrow-left {
+		font-size: 25px;
+		left: 60px;
+		top: 27px;
+	}
+	.images {
+		flex-direction: row;
+		justify-content: center;
+		flex-wrap: wrap;
+}
+	figure {
+		width: 500px;
+		height: 350px;
+		position: relative;
+		margin: 35px;
+	}
+	.sect_2 h2, .sect_3 h2 {
+		margin-left: 60px;
+	}
+	.top .far, .top .fas {
+		right: 70px;
+		top: 50px;
+	}
+	.titre_menu {
+		margin: 40px;
+	}
+	.fond_gris h3 {
+		margin-left: 40px;
+	}
+	.bloc_plats {
+		width: 80%;
+	}
+	.footer {
+		height: auto;
+		padding-left: 0; 
+	}
+	.liens ul {
+		display: flex;
+		justify-content: space-between;
+	}
+	.liens nav li {
+		margin: 15px 25px;
+	}
+	.liens {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+		width: auto;
+	}
+	.fig_carte {
+		height: 400px;
+	}
+}
+
