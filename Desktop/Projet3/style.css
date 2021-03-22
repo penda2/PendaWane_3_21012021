@@ -112,6 +112,9 @@ p {
 	opacity: 0;
 	overflow: hidden;
 }
+.bloc_plats:hover p {
+	width: 60%;
+}
 .entrees, .plats, .desserts {
 	animation: apparition 1s forwards; 
 }
@@ -536,8 +539,8 @@ figcaption .fas:hover {
 		flex-wrap: wrap;
 }
 	figure {
-		width: 500px;
-		height: 350px;
+		width: 560px;
+		height: 370px;
 		position: relative;
 		margin: 35px;
 	}
